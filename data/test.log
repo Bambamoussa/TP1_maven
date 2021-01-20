@@ -421,3 +421,291 @@ COMMIT
 DISCONNECT
 /*C28*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C31*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir date, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), tableau_id_Kanban bigint, utilisateur_id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, fichier_id_fiche bigint, tableaukanban_id_Kanban bigint, primary key (id_section))
+create table TableauKanban (id_Kanban bigint not null, primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, primary key (id_utilisateur))
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FKh5rthkhbawvef63or60fn4612 foreign key (utilisateur_id_utilisateur) references Utilisateur
+alter table Section add constraint FKbtueftmjdr9rmlg1fyy3e5ptp foreign key (fichier_id_fiche) references Fiche
+alter table Section add constraint FKfcjhq4siyhksy3e7olxnus1i5 foreign key (tableaukanban_id_Kanban) references TableauKanban
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TABLEAUKANBAN VALUES(1)
+INSERT INTO FICHE VALUES(2,'2021-01-11','preparation 2','rennes','bonne fiche',40,'le lien ',NULL,NULL)
+INSERT INTO TAG VALUES(3,'les donn\u00e9s',NULL)
+INSERT INTO TAG VALUES(4,'bon produit',NULL)
+INSERT INTO FICHE VALUES(5,'2021-01-11','preparation 3','rennes','fiche',40,'le lien de url',NULL,NULL)
+INSERT INTO SECTION VALUES(6,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(7)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir date, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), tableau_id_Kanban bigint, utilisateur_id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, fichier_id_fiche bigint, tableaukanban_id_Kanban bigint, primary key (id_section))
+create table TableauKanban (id_Kanban bigint not null, primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, primary key (id_utilisateur))
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FKh5rthkhbawvef63or60fn4612 foreign key (utilisateur_id_utilisateur) references Utilisateur
+alter table Section add constraint FKbtueftmjdr9rmlg1fyy3e5ptp foreign key (fichier_id_fiche) references Fiche
+alter table Section add constraint FKfcjhq4siyhksy3e7olxnus1i5 foreign key (tableaukanban_id_Kanban) references TableauKanban
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TABLEAUKANBAN VALUES(1)
+INSERT INTO FICHE VALUES(2,'2021-01-11','preparation 2','rennes','bonne fiche',40,'le lien ',NULL,NULL)
+INSERT INTO TAG VALUES(3,'les donn\u00e9s',NULL)
+INSERT INTO TAG VALUES(4,'bon produit',NULL)
+INSERT INTO FICHE VALUES(5,'2021-01-11','preparation 3','rennes','fiche',40,'le lien de url',NULL,NULL)
+INSERT INTO SECTION VALUES(6,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(7)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C33*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir date, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), tableau_id_Kanban bigint, utilisateur_id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, fichier_id_fiche bigint, tableaukanban_id_Kanban bigint, primary key (id_section))
+create table TableauKanban (id_Kanban bigint not null, primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, primary key (id_utilisateur))
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FKh5rthkhbawvef63or60fn4612 foreign key (utilisateur_id_utilisateur) references Utilisateur
+alter table Section add constraint FKbtueftmjdr9rmlg1fyy3e5ptp foreign key (fichier_id_fiche) references Fiche
+alter table Section add constraint FKfcjhq4siyhksy3e7olxnus1i5 foreign key (tableaukanban_id_Kanban) references TableauKanban
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TABLEAUKANBAN VALUES(1)
+INSERT INTO FICHE VALUES(2,'2021-01-11','preparation 2','rennes','bonne fiche',40,'le lien ',NULL,NULL)
+INSERT INTO TAG VALUES(3,'les donn\u00e9s',NULL)
+INSERT INTO TAG VALUES(4,'bon produit',NULL)
+INSERT INTO FICHE VALUES(5,'2021-01-11','preparation 3','rennes','fiche',40,'le lien de url',NULL,NULL)
+INSERT INTO SECTION VALUES(6,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(7)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C34*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir date, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), tableau_id_Kanban bigint, utilisateur_id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, fichier_id_fiche bigint, tableaukanban_id_Kanban bigint, primary key (id_section))
+create table TableauKanban (id_Kanban bigint not null, primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, primary key (id_utilisateur))
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FKh5rthkhbawvef63or60fn4612 foreign key (utilisateur_id_utilisateur) references Utilisateur
+alter table Section add constraint FKbtueftmjdr9rmlg1fyy3e5ptp foreign key (fichier_id_fiche) references Fiche
+alter table Section add constraint FKfcjhq4siyhksy3e7olxnus1i5 foreign key (tableaukanban_id_Kanban) references TableauKanban
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TABLEAUKANBAN VALUES(1)
+INSERT INTO FICHE VALUES(2,'2021-01-11','preparation 2','rennes','bonne fiche',40,'le lien ',NULL,NULL)
+INSERT INTO TAG VALUES(3,'les donn\u00e9s',NULL)
+INSERT INTO TAG VALUES(4,'bon produit',NULL)
+INSERT INTO FICHE VALUES(5,'2021-01-11','preparation 3','rennes','fiche',40,'le lien de url',NULL,NULL)
+INSERT INTO SECTION VALUES(6,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(7)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C35*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir date, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), tableau_id_Kanban bigint, utilisateur_id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, fichier_id_fiche bigint, tableaukanban_id_Kanban bigint, primary key (id_section))
+create table TableauKanban (id_Kanban bigint not null, primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, primary key (id_utilisateur))
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FKh5rthkhbawvef63or60fn4612 foreign key (utilisateur_id_utilisateur) references Utilisateur
+alter table Section add constraint FKbtueftmjdr9rmlg1fyy3e5ptp foreign key (fichier_id_fiche) references Fiche
+alter table Section add constraint FKfcjhq4siyhksy3e7olxnus1i5 foreign key (tableaukanban_id_Kanban) references TableauKanban
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TABLEAUKANBAN VALUES(1)
+INSERT INTO FICHE VALUES(2,'2021-01-11','preparation 2','rennes','bonne fiche',40,'le lien ',NULL,NULL)
+INSERT INTO TAG VALUES(3,'les donn\u00e9s',NULL)
+INSERT INTO TAG VALUES(4,'bon produit',NULL)
+INSERT INTO FICHE VALUES(5,'2021-01-11','preparation 3','rennes','fiche',40,'le lien de url',NULL,NULL)
+INSERT INTO SECTION VALUES(6,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(7)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir date, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), tableau_id_Kanban bigint, utilisateur_id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, fichier_id_fiche bigint, tableaukanban_id_Kanban bigint, primary key (id_section))
+create table TableauKanban (id_Kanban bigint not null, primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, primary key (id_utilisateur))
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FKh5rthkhbawvef63or60fn4612 foreign key (utilisateur_id_utilisateur) references Utilisateur
+alter table Section add constraint FKbtueftmjdr9rmlg1fyy3e5ptp foreign key (fichier_id_fiche) references Fiche
+alter table Section add constraint FKfcjhq4siyhksy3e7olxnus1i5 foreign key (tableaukanban_id_Kanban) references TableauKanban
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TABLEAUKANBAN VALUES(1)
+INSERT INTO FICHE VALUES(2,'2021-01-11','preparation 2','rennes','bonne fiche',40,'le lien ',NULL,NULL)
+INSERT INTO TAG VALUES(3,'les donn\u00e9s',NULL)
+INSERT INTO TAG VALUES(4,'bon produit',NULL)
+INSERT INTO FICHE VALUES(5,'2021-01-11','preparation 3','rennes','fiche',40,'le lien de url',NULL,NULL)
+INSERT INTO SECTION VALUES(6,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(7)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir date, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), tableau_id_Kanban bigint, utilisateur_id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, fichier_id_fiche bigint, tableaukanban_id_Kanban bigint, primary key (id_section))
+create table TableauKanban (id_Kanban bigint not null, primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, primary key (id_utilisateur))
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FKh5rthkhbawvef63or60fn4612 foreign key (utilisateur_id_utilisateur) references Utilisateur
+alter table Section add constraint FKbtueftmjdr9rmlg1fyy3e5ptp foreign key (fichier_id_fiche) references Fiche
+alter table Section add constraint FKfcjhq4siyhksy3e7olxnus1i5 foreign key (tableaukanban_id_Kanban) references TableauKanban
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TABLEAUKANBAN VALUES(1)
+INSERT INTO FICHE VALUES(2,'2021-01-11','preparation 2','rennes','bonne fiche',40,'le lien ',NULL,NULL)
+INSERT INTO TAG VALUES(3,'les donn\u00e9s',NULL)
+INSERT INTO TAG VALUES(4,'bon produit',NULL)
+INSERT INTO FICHE VALUES(5,'2021-01-11','preparation 3','rennes','fiche',40,'le lien de url',NULL,NULL)
+INSERT INTO SECTION VALUES(6,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(7)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir date, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), tableau_id_Kanban bigint, utilisateur_id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, fichier_id_fiche bigint, tableaukanban_id_Kanban bigint, primary key (id_section))
+create table TableauKanban (id_Kanban bigint not null, primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, primary key (id_utilisateur))
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FKh5rthkhbawvef63or60fn4612 foreign key (utilisateur_id_utilisateur) references Utilisateur
+alter table Section add constraint FKbtueftmjdr9rmlg1fyy3e5ptp foreign key (fichier_id_fiche) references Fiche
+alter table Section add constraint FKfcjhq4siyhksy3e7olxnus1i5 foreign key (tableaukanban_id_Kanban) references TableauKanban
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TABLEAUKANBAN VALUES(1)
+INSERT INTO FICHE VALUES(2,'2021-01-12','preparation 2','rennes','bonne fiche',40,'le lien ',NULL,NULL)
+INSERT INTO TAG VALUES(3,'les donn\u00e9s',NULL)
+INSERT INTO TAG VALUES(4,'bon produit',NULL)
+INSERT INTO FICHE VALUES(5,'2021-01-12','preparation 3','rennes','fiche',40,'le lien de url',NULL,NULL)
+INSERT INTO SECTION VALUES(6,NULL,NULL)
+INSERT INTO SECTION VALUES(7,NULL,NULL)
+INSERT INTO SECTION VALUES(8,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(9)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir date, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), tableau_id_Kanban bigint, utilisateur_id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, fichier_id_fiche bigint, tableaukanban_id_Kanban bigint, primary key (id_section))
+create table TableauKanban (id_Kanban bigint not null, primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, primary key (id_utilisateur))
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FKh5rthkhbawvef63or60fn4612 foreign key (utilisateur_id_utilisateur) references Utilisateur
+alter table Section add constraint FKbtueftmjdr9rmlg1fyy3e5ptp foreign key (fichier_id_fiche) references Fiche
+alter table Section add constraint FKfcjhq4siyhksy3e7olxnus1i5 foreign key (tableaukanban_id_Kanban) references TableauKanban
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TABLEAUKANBAN VALUES(1)
+INSERT INTO FICHE VALUES(2,'2021-01-12','preparation 2','rennes','bonne fiche',40,'le lien ',NULL,NULL)
+INSERT INTO TAG VALUES(3,'les donn\u00e9s',NULL)
+INSERT INTO TAG VALUES(4,'bon produit',NULL)
+INSERT INTO FICHE VALUES(5,'2021-01-12','preparation 3','rennes','fiche',40,'le lien de url',NULL,NULL)
+INSERT INTO SECTION VALUES(6,NULL,NULL)
+INSERT INTO SECTION VALUES(7,NULL,NULL)
+INSERT INTO SECTION VALUES(8,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(9)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+DISCONNECT
+/*C30*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C40*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir date, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), tableau_id_Kanban bigint, utilisateur_id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, fichier_id_fiche bigint, tableaukanban_id_Kanban bigint, primary key (id_section))
+create table TableauKanban (id_Kanban bigint not null, primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, primary key (id_utilisateur))
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FKh5rthkhbawvef63or60fn4612 foreign key (utilisateur_id_utilisateur) references Utilisateur
+alter table Section add constraint FKbtueftmjdr9rmlg1fyy3e5ptp foreign key (fichier_id_fiche) references Fiche
+alter table Section add constraint FKfcjhq4siyhksy3e7olxnus1i5 foreign key (tableaukanban_id_Kanban) references TableauKanban
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TABLEAUKANBAN VALUES(1)
+INSERT INTO FICHE VALUES(2,'2021-01-12','preparation 2','rennes','bonne fiche',40,'le lien ',NULL,NULL)
+INSERT INTO TAG VALUES(3,'les donn\u00e9s',NULL)
+INSERT INTO TAG VALUES(4,'bon produit',NULL)
+INSERT INTO FICHE VALUES(5,'2021-01-12','preparation 3','rennes','fiche',40,'le lien de url',NULL,NULL)
+INSERT INTO SECTION VALUES(6,NULL,NULL)
+INSERT INTO SECTION VALUES(7,NULL,NULL)
+INSERT INTO SECTION VALUES(8,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(9)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+DISCONNECT
