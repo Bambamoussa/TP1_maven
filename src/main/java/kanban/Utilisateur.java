@@ -28,4 +28,7 @@ public class Utilisateur implements Serializable {
     public void setFiches(List <Fiche> fiches) {
         this.fiches = fiches;
     }
+
+
+
 }
