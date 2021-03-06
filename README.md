@@ -32,3 +32,7 @@ De TP2-TP4 : dans ces tp nous avions créedes  modèles métier de cette applica
   - executer la  class JpaTest
   - executer  la class RestServer
   - tester les API avec postman 
+  
+  # developpeurs
+  - BAMBA MOUSSA
+  - DJELI BOLI ESTELLE
