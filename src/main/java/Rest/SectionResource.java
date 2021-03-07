@@ -22,7 +22,7 @@ public class SectionResource {
         @GET
         @Path("/{sectionId}")
         @Produces(MediaType.APPLICATION_JSON)
-        public Fiche getFicheById(@PathParam("ficheId") Long ficheId)  {
+        public Fiche getFicheById(@PathParam("sectionId") Long ficheId)  {
             Fiche fiche= this.sectiondao.findOne(ficheId);
             return  fiche;
         }
