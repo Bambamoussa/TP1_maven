@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="320d6bd0-1a19-4b80-8581-e7899addaeaa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Rest/SwaggerResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.log" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.script" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.script" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rest/SectionResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/SectionResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Webapp/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/EntityManagerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/EntityManagerHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/RestServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/RestServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/TestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/TestApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/testjpa.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jaxrs/EntityManagerHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jaxrs/EntityManagerHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jaxrs/JpaTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jaxrs/JpaTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jaxrs/RestServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jaxrs/RestServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jaxrs/TestApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jaxrs/TestApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test.lck" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.lck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Webapp/swagger/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Webapp/swagger/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +286,7 @@
       <updated>1610352407997</updated>
       <workItem from="1614973833390" duration="520000" />
       <workItem from="1615024294774" duration="4076000" />
-      <workItem from="1615115653888" duration="9879000" />
+      <workItem from="1615115653888" duration="11970000" />
     </task>
     <servers />
   </component>
