@@ -8,7 +8,7 @@ import kanban.TableauKanban;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
-@Path("/tableaukanbanresource")
+@Path("/api")
 @Produces({"application/json", "application/xml"})
 
 public class TableauKanbanResource {
@@ -27,7 +27,7 @@ public class TableauKanbanResource {
         }
 
         @GET
-        @Path("/{tableauId}")
+        @Path("/tableau/{tableauId}")
         @Produces(MediaType.APPLICATION_JSON)
         public TableauKanban getTableauKanById(@PathParam("tableauId") Long tableauId)  {
             TableauKanban tableau = this.tableaukanbandao.findOne(tableauId);

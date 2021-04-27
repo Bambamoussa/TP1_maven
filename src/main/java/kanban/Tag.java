@@ -4,12 +4,14 @@ import javax.persistence.*;
 
 @Entity
 public class Tag {
-
+    @Id
+    @GeneratedValue(strategy=
+            GenerationType.AUTO)
     private Long id_Tag;
     private String libelle;
+    @ManyToOne
     private Fiche fiche ;
 
-    @ManyToOne
     public Fiche getFiche() {
         return fiche;
     }
@@ -18,9 +20,8 @@ public class Tag {
         this.fiche = fiche;
     }
 
-    @Id
-    @GeneratedValue(strategy=
-            GenerationType.AUTO)
+
+
     public Long getId_Tag() {
         return id_Tag;
     }

@@ -3,24 +3,57 @@ package kanban;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Fiche implements Serializable {
 
 
 
+    @Id
+    @GeneratedValue(strategy=
+            GenerationType.AUTO)
+    private long id_fiche;
 
-    private Long id_fiche;
+    public void setId_fiche(long id_fiche) {
+        this.id_fiche = id_fiche;
+    }
+
     private  String libelle;
     private Date date_buttoir;
     private String lieu;
     private String url;
     private Long temps;
-    private  Utilisateur utilisateur;
-    private  TableauKanban tableau;
+    @ManyToOne
+    private  Section section;
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
 
     @ManyToOne
+    @JoinColumn (name="id_utilisateur")
+    private  Utilisateur utilisateur;
+    @ManyToOne
+    private  TableauKanban tableau;
+
+
+
+    @OneToMany(mappedBy = "fiche", cascade = CascadeType.ALL)
+    private Set<Tag> tags= new HashSet<>();
+    public void addTag(Tag t) {
+        t.setFiche(this);
+        tags.add(t) ;
+    }
+
+
+
     public TableauKanban getTableau() {
         return tableau;
     }
@@ -29,8 +62,7 @@ public class Fiche implements Serializable {
         this.tableau = tableau;
     }
 
-    private List<Section> sections;
-    private List <Tag> tag;
+
 
     public String getNote() {
         return note;
@@ -42,26 +74,9 @@ public class Fiche implements Serializable {
 
     private String note ;
 
-    @OneToMany(mappedBy = "fiche", cascade = CascadeType.PERSIST)
-    public List <Tag> getTag() {
-        return tag;
-    }
-    @OneToMany(mappedBy = "fichier", cascade = CascadeType.PERSIST)
-    public List <Section> getSections() {
-        return sections;
-    }
-
-    public void setSections(List <Section> sections) {
-        this.sections = sections;
-    }
-
-    public void setTag(List <Tag> tag) {
-        this.tag = tag;
-    }
 
 
 
-    @ManyToOne
     public Utilisateur getUtilisateur() {
         return utilisateur;
     }
@@ -69,10 +84,6 @@ public class Fiche implements Serializable {
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
-
-
-
-
 
     public Long getTemps() {
         return temps;
@@ -103,16 +114,11 @@ public class Fiche implements Serializable {
         return lieu;
     }
 
-    @Id
-    @GeneratedValue(strategy=
-            GenerationType.AUTO)
-    public Long getId_fiche() {
+
+    public long getId_fiche() {
         return id_fiche;
     }
 
-    public void setId_fiche(Long id_fiche) {
-        this.id_fiche = id_fiche;
-    }
 
     public void setLieu(String lieu) {
         this.lieu = lieu;

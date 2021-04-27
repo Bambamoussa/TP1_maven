@@ -1,47 +1,42 @@
 package kanban;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class TableauKanban {
-    private Long id_Kanban;
-    private List<Section>  sections;
-    private  List <Fiche> fiches;
-
-    @OneToMany(mappedBy = "tableau", cascade = CascadeType.PERSIST)
-    public List <Fiche> getFiches() {
-        return fiches;
-    }
-
-    public void setFiches(List <Fiche> fiches) {
-        this.fiches = fiches;
-    }
-
-
-
-
-    public void setSections(List <Section> sections) {
-        this.sections = sections;
-    }
-
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id_Kanban;
+
+
+
+    private String libelle_tableau;
+
+    @OneToMany(mappedBy = "tableau", cascade = CascadeType.ALL)
+    private Set<Fiche> fiches= new HashSet<Fiche>();
+
+    public void addFiches(Fiche f) {
+        f.setTableau(this);
+        fiches.add(f) ;
+    }
+
+    public String getLibelle_tableau() {
+        return libelle_tableau;
+    }
+
+    public void setLibelle_tableau(String libelle_tableau) {
+        this.libelle_tableau = libelle_tableau;
+    }
+
     public Long getId_Kanban() {
         return id_Kanban;
     }
 
     public void setId_Kanban(Long id_Kanban) {
         this.id_Kanban = id_Kanban;
-    }
-
-    @OneToMany(mappedBy = "tableaukanban", cascade = CascadeType.PERSIST)
-    @Enumerated(EnumType.STRING)
-
-    public List <Section> getSections() {
-        return sections;
     }
 
 

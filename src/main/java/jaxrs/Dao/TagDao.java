@@ -19,11 +19,15 @@ public class TagDao {
 
 
     public void saveTag(Tag tag) {
-        EntityTransaction t = EntityManagerHelper.getEntityManager().getTransaction();
+        this.entityManager.getTransaction().begin();
+        try {
+            this.entityManager.persist(tag);
 
-        //t.begin();
-        EntityManagerHelper.getEntityManager().persist(tag);
-        //t.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.entityManager.getTransaction().commit();
+
     }
 
 

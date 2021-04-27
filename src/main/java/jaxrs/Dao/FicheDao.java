@@ -15,15 +15,25 @@ public class FicheDao {
 
     public FicheDao() {
         this.entityManager = EntityManagerHelper.getEntityManager();
+
+
+
     }
 
 
     public void saveFiche(Fiche fiche) {
-        this.entityManager.getTransaction();
 
-       // t.begin();
-        this.entityManager.persist(fiche);
-        //t.commit();
+
+
+        this.entityManager.getTransaction().begin();
+        try {
+            this.entityManager.persist(fiche);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.entityManager.getTransaction().commit();
+
     }
 
 

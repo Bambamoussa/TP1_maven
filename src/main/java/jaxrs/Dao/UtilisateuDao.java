@@ -22,11 +22,15 @@ public class UtilisateuDao {
 
 
     public void saveUtilisater(Utilisateur utilisateur) {
-        EntityTransaction t = EntityManagerHelper.getEntityManager().getTransaction();
+        this.entityManager.getTransaction().begin();
+        try {
+            this.entityManager.persist(utilisateur);
 
-       // t.begin();
-        EntityManagerHelper.getEntityManager().persist(utilisateur);
-       // t.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.entityManager.getTransaction().commit();
+
     }
 
     public List <Utilisateur> listUtilisateurs(){

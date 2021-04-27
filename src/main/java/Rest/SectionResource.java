@@ -3,15 +3,16 @@ package Rest;
 import jaxrs.Dao.FicheDao;
 import jaxrs.Dao.SectionDao;
 import kanban.Fiche;
+import kanban.Section;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
-@Path("/section")
+@Path("/api")
 @Produces({"application/json", "application/xml"})
 
 public class SectionResource {
-/*
+
         private SectionDao sectiondao;
 
         public  SectionResource()
@@ -20,54 +21,54 @@ public class SectionResource {
         }
 
         @GET
-        @Path("/{sectionId}")
+        @Path("/section/{sectionId}")
         @Produces(MediaType.APPLICATION_JSON)
-        public Fiche getFicheById(@PathParam("sectionId") Long ficheId)  {
-            Fiche fiche= this.sectiondao.findOne(ficheId);
-            return  fiche;
+        public Section getSectionById(@PathParam("sectionId") Long sectionId)  {
+            Section section= this.sectiondao.findOne(sectionId);
+            return  section;
         }
 
         @GET
-        @Path("/fiche/all")
+        @Path("/section/all")
         @Produces(MediaType.APPLICATION_JSON)
-        public List <Fiche> getFiche(){
+        public List <Section> getSection(){
 
 
-            return this.fichedao.listFiche();
+            return this.sectiondao.listSection();
         }
 
 
         @POST
-        @Path("/fiche")
+        @Path("/section")
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
-        public void createUtilisateur(Fiche f) {
+        public void createSection(Section s) {
 
-            this.fichedao.saveFiche(f);
+            this.sectiondao.saveSection(s);
 
         }
 
 
         @DELETE
-        @Path("/fiche/delete")
+        @Path("/section/delete")
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
-        public void deleteUtilisateur(Fiche f) {
+        public void deleteSection(Section s) {
 
-            this.fichedao.delete(f);
+            this.sectiondao.delete(s);
 
         }
 
         @DELETE
-        @Path("/utilisateur/delete/{deleteID}")
+        @Path("/section/delete/{deleteID}")
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
-        public void deleteUtilisateurById(Long utilisateurId) {
+        public void deleteSectionById(Long sectionId) {
 
-            this.fichedao.deleteById(utilisateurId);
+            this.sectiondao.deleteById(sectionId);
 
         }
 
-    }*/
+    }
 
-}
+

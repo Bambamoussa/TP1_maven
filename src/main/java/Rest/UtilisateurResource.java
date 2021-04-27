@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-    @Path("/utilisateur")
+    @Path("/api")
     @Produces({"application/json", "application/xml"})
     public class UtilisateurResource {
         private UtilisateuDao utilisateurdao;
@@ -20,7 +20,7 @@ import java.util.List;
         }
 
         @GET
-        @Path("/{utilisateurId}")
+        @Path("/utilisateur/{utilisateurId}")
         @Produces(MediaType.APPLICATION_JSON)
         public  Utilisateur getUtilisateurById(@PathParam("utilisateurId") Long utilisateurId)  {
             Utilisateur utilisateur= this.utilisateurdao.findOne(utilisateurId);
@@ -28,7 +28,7 @@ import java.util.List;
         }
 
         @GET
-        @Path("utilisateur/all")
+        @Path("/utilisateur/all")
         @Produces(MediaType.APPLICATION_JSON)
         public List<Utilisateur> getUtilisateur(){
 

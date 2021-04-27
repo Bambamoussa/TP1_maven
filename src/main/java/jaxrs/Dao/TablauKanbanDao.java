@@ -18,11 +18,15 @@ public class TablauKanbanDao {
 
 
     public void saveTableau(TableauKanban tableau) {
-        EntityTransaction t = this.entityManager.getTransaction();
+        this.entityManager.getTransaction().begin();
+        try {
+            this.entityManager.persist(tableau);
 
-        //t.begin();
-        this.entityManager.persist(tableau);
-       // t.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.entityManager.getTransaction().commit();
+
     }
 
     public List <TableauKanban> listTableaux()

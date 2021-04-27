@@ -1,9 +1,9 @@
 package jaxrs;
 
-import java.util.logging.Logger;
-
 import io.undertow.Undertow;
 import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
+
+import java.util.logging.Logger;
 
 
 public class RestServer {

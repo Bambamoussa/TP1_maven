@@ -1,13 +1,14 @@
 package Rest;
 
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jaxrs.Dao.FicheDao;
 import kanban.Fiche;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
-@Path("/fiche")
+
+@Path("/api")
 @Produces({"application/json", "application/xml"})
 
 public class FicheResource {
@@ -27,6 +28,14 @@ public class FicheResource {
             Fiche fiche= this.fichedao.findOne(ficheId);
             return  fiche;
         }
+    @PUT
+    @Path("fiche/{ficheId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public  Fiche updateFicheById(@PathParam("ficheId") Long ficheId)  {
+            Fiche updateFiche= getFicheById(ficheId);
+        Fiche fiche= this.fichedao.update(updateFiche);
+        return  fiche;
+    }
     
         @GET
         @Path("/fiche/all")
@@ -43,7 +52,6 @@ public class FicheResource {
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
         public void createUtilisateur(Fiche f) {
-
             this.fichedao.saveFiche(f);
 
         }
