@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f012163-2038-484b-ab78-9e8812319bf1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_core_v3_swagger_jaxrs2_servlet_initializer_v2_2_1_4.xml" afterDir="false" />
+    <list default="true" id="2f012163-2038-484b-ab78-9e8812319bf1" name="Default Changelist" comment="modification de la conception">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.lck" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/test.log" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/test.script" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.script" afterDir="false" />
@@ -16,39 +13,12 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/Rest/SectionResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/SectionResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Rest/TableauKanbanResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/TableauKanbanResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Rest/UtilisateurResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/UtilisateurResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/FicheDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/FicheDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/SectionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/SectionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/TablauKanbanDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/TablauKanbanDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/TagDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/TagDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/UtilisateuDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/UtilisateuDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/JpaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/JpaTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/RestServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/RestServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kanban/Fiche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kanban/Fiche.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kanban/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kanban/Section.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kanban/TableauKanban.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kanban/TableauKanban.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kanban/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kanban/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kanban/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kanban/Utilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Rest/FicheResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/FicheResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Rest/SectionResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/SectionResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Rest/TableauKanbanResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/TableauKanbanResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Rest/UtilisateurResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/UtilisateurResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jaxrs/Dao/FicheDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jaxrs/Dao/FicheDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jaxrs/Dao/SectionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jaxrs/Dao/SectionDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/jaxrs/Dao/UtilisateuDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jaxrs/Dao/UtilisateuDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jaxrs/JpaTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jaxrs/JpaTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kanban/Fiche.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kanban/Fiche.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kanban/Section.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kanban/Section.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kanban/TableauKanban.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kanban/TableauKanban.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kanban/Tag.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kanban/Tag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/kanban/Utilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kanban/Utilisateur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dependency/javassist-3.24.0-GA.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dependency/mysql-connector-java-8.0.22.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dependency/protobuf-java-3.11.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/testjpa-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testjpa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/testjpa.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,6 +149,14 @@
       <option name="presentableId" value="Default" />
       <updated>1618205056436</updated>
     </task>
+    <task id="LOCAL-00001" summary="modification de la conception">
+      <created>1619546204394</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619546204394</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,5 +170,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modification de la conception" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification de la conception" />
   </component>
 </project>

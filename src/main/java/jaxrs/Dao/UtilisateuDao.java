@@ -40,12 +40,17 @@ public class UtilisateuDao {
     }
 
 
-    public Utilisateur update(final Utilisateur entity) {
-        EntityTransaction t = this.entityManager.getTransaction();
-        t.begin();
-        Utilisateur res = entityManager.merge(entity);
-        t.commit();
-        return res;
+    public void update(Utilisateur utilisateur ) {
+        this.entityManager.getTransaction().begin();
+        try {
+            this.entityManager.merge(utilisateur);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.entityManager.getTransaction().commit();
+
+
 
     }
 

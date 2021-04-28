@@ -69,9 +69,8 @@ public class FicheResource {
 
         @DELETE
         @Path("/fiche/delete/{deleteID}")
-        @Produces(MediaType.APPLICATION_JSON)
-        @Consumes(MediaType.APPLICATION_JSON)
-        public void deleteFicheById(Long utilisateurId) {
+
+        public void deleteFicheById(@PathParam("deleteID") Long utilisateurId) {
 
             this.fichedao.deleteById(utilisateurId);
 

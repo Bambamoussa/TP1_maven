@@ -60,10 +60,8 @@ public class SectionResource {
         }
 
         @DELETE
-        @Path("/section/delete/{deleteID}")
-        @Produces(MediaType.APPLICATION_JSON)
-        @Consumes(MediaType.APPLICATION_JSON)
-        public void deleteSectionById(Long sectionId) {
+        @Path("/section/delete/{sectionID}")
+        public void deleteSectionById(@PathParam("sectionID") Long sectionId) {
 
             this.sectiondao.deleteById(sectionId);
 

@@ -67,9 +67,8 @@ public class TableauKanbanResource {
 
         @DELETE
         @Path("/tableau/delete/{deleteID}")
-        @Produces(MediaType.APPLICATION_JSON)
-        @Consumes(MediaType.APPLICATION_JSON)
-        public void deleteTableauById(Long utilisateurId) {
+
+        public void deleteTableauById(@PathParam("deleteID") Long utilisateurId) {
 
             this.tableaukanbandao.deleteById(utilisateurId);
 

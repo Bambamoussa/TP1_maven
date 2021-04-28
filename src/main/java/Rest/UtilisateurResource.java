@@ -1,6 +1,7 @@
 package Rest;
 
 import jaxrs.Dao.UtilisateuDao;
+import kanban.Fiche;
 import kanban.Utilisateur;
 
 import javax.ws.rs.*;
@@ -60,11 +61,18 @@ import java.util.List;
 
         @DELETE
         @Path("/utilisateur/delete/{deleteID}")
-        @Produces(MediaType.APPLICATION_JSON)
-        @Consumes(MediaType.APPLICATION_JSON)
-        public void deleteUtilisateurById(Long utilisateurId) {
+        public void deleteUtilisateurById(@PathParam("deleteID") Long utilisateurId) {
 
             this.utilisateurdao.deleteById(utilisateurId);
+
+        }
+        @PUT
+        @Path("/utilisateur/utilisateur/{utilisateurId}")
+        @Produces(MediaType.APPLICATION_JSON)
+        @Consumes(MediaType.APPLICATION_JSON)
+        public void updateUtilisateurById(@PathParam("utilisateurId") Long utilisateurId)  {
+            Utilisateur updateUtilisateur= getUtilisateurById(utilisateurId);
+             this.utilisateurdao.update(updateUtilisateur);
 
         }
 
