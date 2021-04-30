@@ -10,13 +10,9 @@
       <change beforePath="$PROJECT_DIR$/data/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/test.script" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.script" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Rest/FicheResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/FicheResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rest/SectionResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/SectionResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rest/TableauKanbanResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/TableauKanbanResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Rest/UtilisateurResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/UtilisateurResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/UtilisateuDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaxrs/Dao/UtilisateuDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Rest/FicheResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/FicheResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Rest/SectionResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/SectionResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Rest/TableauKanbanResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/TableauKanbanResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Rest/UtilisateurResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/UtilisateurResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/jaxrs/Dao/UtilisateuDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jaxrs/Dao/UtilisateuDao.class" afterDir="false" />
     </list>
@@ -81,7 +77,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../annuaire-developer" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />

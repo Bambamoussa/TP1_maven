@@ -1,6 +1,7 @@
 package jaxrs.Dao;
 
 import jaxrs.EntityManagerHelper;
+import kanban.Fiche;
 import kanban.Utilisateur;
 
 import javax.persistence.EntityManager;
@@ -40,17 +41,12 @@ public class UtilisateuDao {
     }
 
 
-    public void update(Utilisateur utilisateur ) {
-        this.entityManager.getTransaction().begin();
-        try {
-            this.entityManager.merge(utilisateur);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.entityManager.getTransaction().commit();
-
-
+    public Utilisateur update( Utilisateur utilisateur ) {
+        EntityTransaction t = this.entityManager.getTransaction();
+        t.begin();
+        Utilisateur res = entityManager.merge(utilisateur);
+        t.commit();
+        return res;
 
     }
 

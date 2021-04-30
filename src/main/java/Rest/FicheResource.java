@@ -22,7 +22,7 @@ public class FicheResource {
         }
 
         @GET
-        @Path("/{ficheId}")
+        @Path("fiche/{ficheId}")
         @Produces(MediaType.APPLICATION_JSON)
         public  Fiche getFicheById(@PathParam("ficheId") Long ficheId)  {
             Fiche fiche= this.fichedao.findOne(ficheId);

@@ -67,13 +67,13 @@ import java.util.List;
 
         }
         @PUT
-        @Path("/utilisateur/utilisateur/{utilisateurId}")
+        @Path("utilisateur/{utilisateurId}")
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
-        public void updateUtilisateurById(@PathParam("utilisateurId") Long utilisateurId)  {
-            Utilisateur updateUtilisateur= getUtilisateurById(utilisateurId);
-             this.utilisateurdao.update(updateUtilisateur);
-
+        public  Utilisateur updateFicheById(@PathParam("utilisateurId") Long utilisateurId)  {
+            Utilisateur updateUtilisateur= this.utilisateurdao.findOne(utilisateurId);
+            Utilisateur utilisateur= this.utilisateurdao.update(updateUtilisateur);
+            return  utilisateur;
         }
 
     }
