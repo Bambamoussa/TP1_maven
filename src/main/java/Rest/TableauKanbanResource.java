@@ -4,6 +4,7 @@ import jaxrs.Dao.FicheDao;
 import jaxrs.Dao.TablauKanbanDao;
 import kanban.Fiche;
 import kanban.TableauKanban;
+import kanban.Utilisateur;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -73,5 +74,17 @@ public class TableauKanbanResource {
             this.tableaukanbandao.deleteById(utilisateurId);
 
         }
+
+    @POST
+    @Path("tableau/{tableauId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public TableauKanban updateFicheById(@PathParam("tableauId") Long tableauId, TableauKanban table)  {
+        TableauKanban updatetableau= this.tableaukanbandao.findOne(tableauId);
+        updatetableau.setLibelle_tableau(table.getLibelle_tableau());
+
+        TableauKanban tableauKanban= this.tableaukanbandao.update(updatetableau);
+        return  tableauKanban;
+    }
 
     }

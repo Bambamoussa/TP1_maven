@@ -66,12 +66,14 @@ import java.util.List;
             this.utilisateurdao.deleteById(utilisateurId);
 
         }
-        @PUT
+        @POST
         @Path("utilisateur/{utilisateurId}")
         @Produces(MediaType.APPLICATION_JSON)
         @Consumes(MediaType.APPLICATION_JSON)
-        public  Utilisateur updateFicheById(@PathParam("utilisateurId") Long utilisateurId)  {
+        public  Utilisateur updateFicheById(@PathParam("utilisateurId") Long utilisateurId,Utilisateur uti)  {
             Utilisateur updateUtilisateur= this.utilisateurdao.findOne(utilisateurId);
+                        updateUtilisateur.setNom(uti.getNom());
+                        updateUtilisateur.setPrenom(uti.getPrenom());
             Utilisateur utilisateur= this.utilisateurdao.update(updateUtilisateur);
             return  utilisateur;
         }

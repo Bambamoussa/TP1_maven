@@ -3,6 +3,7 @@ package Rest;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jaxrs.Dao.FicheDao;
 import kanban.Fiche;
+import kanban.Section;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -75,5 +76,23 @@ public class FicheResource {
             this.fichedao.deleteById(utilisateurId);
 
         }
+
+    @POST
+    @Path("fiche/{ficheId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Fiche updateFicheById(@PathParam("ficheId") Long ficheId, Fiche fiche)  {
+        Fiche updateFiche= this.fichedao.findOne(ficheId);
+        updateFiche.setLibelle(fiche.getLibelle());
+        updateFiche.setDate_buttoir(fiche.getDate_buttoir());
+        updateFiche.setLieu(fiche.getLieu());
+        updateFiche.setNote(fiche.getNote());
+        updateFiche.setTemps(fiche.getTemps());
+        updateFiche.setUrl(fiche.getUrl());
+        updateFiche.setTableau(fiche.getTableau());
+        updateFiche.setUtilisateur(fiche.getUtilisateur());
+        Fiche fiche1= this.fichedao.update(updateFiche);
+        return  fiche1;
+    }
 
     }

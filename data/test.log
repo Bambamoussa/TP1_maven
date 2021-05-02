@@ -1,504 +1,3 @@
-/*C10*/SET SCHEMA PUBLIC
-drop table if exists Fiche CASCADE 
-drop table if exists Section CASCADE 
-drop table if exists Sondage CASCADE 
-drop table if exists TableauKanban CASCADE 
-drop table if exists Tag CASCADE 
-drop table if exists Utilisateur CASCADE 
-drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
-create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
-create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
-create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
-create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
-create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
-alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
-alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
-alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
-alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
-INSERT INTO TAG VALUES(1,'front-end',NULL)
-INSERT INTO TAG VALUES(2,'back-end',NULL)
-INSERT INTO TAG VALUES(3,'reunion',NULL)
-INSERT INTO TAG VALUES(4,'explication',NULL)
-INSERT INTO TAG VALUES(5,'exercices',NULL)
-INSERT INTO TAG VALUES(6,'programmation',NULL)
-INSERT INTO TAG VALUES(7,'execution',NULL)
-INSERT INTO TAG VALUES(8,'deboggage',NULL)
-INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
-INSERT INTO TAG VALUES(10,'repos',NULL)
-INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
-INSERT INTO FICHE VALUES(12,'2021-04-30 09:56:06.475000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
-INSERT INTO FICHE VALUES(13,'2021-04-30 09:56:06.475000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
-INSERT INTO FICHE VALUES(15,'2021-04-30 09:56:06.475000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
-INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
-INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
-INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
-INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
-INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
-INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
-INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
-INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
-INSERT INTO SECTION VALUES(26,'attente')
-INSERT INTO SECTION VALUES(27,'termin\u00e9e')
-INSERT INTO SECTION VALUES(28,'en cours')
-INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
-INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
-INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
-INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
-INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
-INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
-INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
-INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
-INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
-INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
-DELETE FROM TAG WHERE ID_TAG=1
-INSERT INTO TAG VALUES(1,'front-end',13)
-DELETE FROM TAG WHERE ID_TAG=2
-INSERT INTO TAG VALUES(2,'back-end',12)
-DELETE FROM TAG WHERE ID_TAG=3
-INSERT INTO TAG VALUES(3,'reunion',15)
-DELETE FROM TAG WHERE ID_TAG=4
-INSERT INTO TAG VALUES(4,'explication',15)
-DELETE FROM TAG WHERE ID_TAG=6
-INSERT INTO TAG VALUES(6,'programmation',13)
-DELETE FROM TAG WHERE ID_TAG=8
-INSERT INTO TAG VALUES(8,'deboggage',17)
-DELETE FROM TAG WHERE ID_TAG=9
-INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
-DELETE FROM TAG WHERE ID_TAG=10
-INSERT INTO TAG VALUES(10,'repos',17)
-DELETE FROM FICHE WHERE ID_FICHE=12
-INSERT INTO FICHE VALUES(12,'2021-04-30 09:56:06.475000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
-DELETE FROM FICHE WHERE ID_FICHE=13
-INSERT INTO FICHE VALUES(13,'2021-04-30 09:56:06.475000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
-DELETE FROM FICHE WHERE ID_FICHE=15
-INSERT INTO FICHE VALUES(15,'2021-04-30 09:56:06.475000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
-DELETE FROM FICHE WHERE ID_FICHE=17
-INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
-COMMIT
-DISCONNECT
-/*C11*/SET SCHEMA PUBLIC
-drop table if exists Fiche CASCADE 
-drop table if exists Section CASCADE 
-drop table if exists Sondage CASCADE 
-drop table if exists TableauKanban CASCADE 
-drop table if exists Tag CASCADE 
-drop table if exists Utilisateur CASCADE 
-drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
-create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
-create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
-create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
-create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
-create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
-alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
-alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
-alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
-alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
-/*C12*/SET SCHEMA PUBLIC
-drop table if exists Fiche CASCADE 
-drop table if exists Section CASCADE 
-drop table if exists Sondage CASCADE 
-drop table if exists TableauKanban CASCADE 
-drop table if exists Tag CASCADE 
-drop table if exists Utilisateur CASCADE 
-drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
-create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
-create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
-create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
-create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
-create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
-alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
-alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
-alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
-alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
-INSERT INTO TAG VALUES(1,'front-end',NULL)
-INSERT INTO TAG VALUES(2,'back-end',NULL)
-INSERT INTO TAG VALUES(3,'reunion',NULL)
-INSERT INTO TAG VALUES(4,'explication',NULL)
-INSERT INTO TAG VALUES(5,'exercices',NULL)
-INSERT INTO TAG VALUES(6,'programmation',NULL)
-INSERT INTO TAG VALUES(7,'execution',NULL)
-INSERT INTO TAG VALUES(8,'deboggage',NULL)
-INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
-INSERT INTO TAG VALUES(10,'repos',NULL)
-INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
-INSERT INTO FICHE VALUES(12,'2021-04-30 09:57:34.579000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
-INSERT INTO FICHE VALUES(13,'2021-04-30 09:57:34.579000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
-INSERT INTO FICHE VALUES(15,'2021-04-30 09:57:34.579000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
-INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
-INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
-INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
-INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
-INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
-INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
-INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
-INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
-INSERT INTO SECTION VALUES(26,'attente')
-INSERT INTO SECTION VALUES(27,'termin\u00e9e')
-INSERT INTO SECTION VALUES(28,'en cours')
-INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
-INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
-INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
-INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
-INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
-INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
-INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
-INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
-INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
-INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
-DELETE FROM TAG WHERE ID_TAG=1
-INSERT INTO TAG VALUES(1,'front-end',13)
-DELETE FROM TAG WHERE ID_TAG=2
-INSERT INTO TAG VALUES(2,'back-end',12)
-DELETE FROM TAG WHERE ID_TAG=3
-INSERT INTO TAG VALUES(3,'reunion',15)
-DELETE FROM TAG WHERE ID_TAG=4
-INSERT INTO TAG VALUES(4,'explication',15)
-DELETE FROM TAG WHERE ID_TAG=6
-INSERT INTO TAG VALUES(6,'programmation',13)
-DELETE FROM TAG WHERE ID_TAG=8
-INSERT INTO TAG VALUES(8,'deboggage',17)
-DELETE FROM TAG WHERE ID_TAG=9
-INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
-DELETE FROM TAG WHERE ID_TAG=10
-INSERT INTO TAG VALUES(10,'repos',17)
-DELETE FROM FICHE WHERE ID_FICHE=12
-INSERT INTO FICHE VALUES(12,'2021-04-30 09:57:34.579000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
-DELETE FROM FICHE WHERE ID_FICHE=13
-INSERT INTO FICHE VALUES(13,'2021-04-30 09:57:34.579000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
-DELETE FROM FICHE WHERE ID_FICHE=15
-INSERT INTO FICHE VALUES(15,'2021-04-30 09:57:34.579000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
-DELETE FROM FICHE WHERE ID_FICHE=17
-INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
-COMMIT
-DISCONNECT
-/*C11*/INSERT INTO FICHE VALUES(39,NULL,'fiche7','lyon3','moyen',11,NULL,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 40
-COMMIT
-INSERT INTO FICHE VALUES(40,NULL,'kaban','lyon','bien',4,NULL,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 41
-COMMIT
-DELETE FROM FICHE WHERE ID_FICHE=40
-COMMIT
-DISCONNECT
-/*C14*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C13*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C15*/SET SCHEMA PUBLIC
-drop table if exists Fiche CASCADE 
-drop table if exists Section CASCADE 
-drop table if exists Sondage CASCADE 
-drop table if exists TableauKanban CASCADE 
-drop table if exists Tag CASCADE 
-drop table if exists Utilisateur CASCADE 
-drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
-create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
-create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
-create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
-create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
-create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
-alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
-alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
-alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
-alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
-INSERT INTO TAG VALUES(1,'front-end',NULL)
-INSERT INTO TAG VALUES(2,'back-end',NULL)
-INSERT INTO TAG VALUES(3,'reunion',NULL)
-INSERT INTO TAG VALUES(4,'explication',NULL)
-INSERT INTO TAG VALUES(5,'exercices',NULL)
-INSERT INTO TAG VALUES(6,'programmation',NULL)
-INSERT INTO TAG VALUES(7,'execution',NULL)
-INSERT INTO TAG VALUES(8,'deboggage',NULL)
-INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
-INSERT INTO TAG VALUES(10,'repos',NULL)
-INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
-INSERT INTO FICHE VALUES(12,'2021-04-30 10:31:57.483000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
-INSERT INTO FICHE VALUES(13,'2021-04-30 10:31:57.483000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
-INSERT INTO FICHE VALUES(15,'2021-04-30 10:31:57.483000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
-INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
-INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
-INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
-INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
-INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
-INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
-INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
-INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
-INSERT INTO SECTION VALUES(26,'attente')
-INSERT INTO SECTION VALUES(27,'termin\u00e9e')
-INSERT INTO SECTION VALUES(28,'en cours')
-INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
-INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
-INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
-INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
-INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
-INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
-INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
-INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
-INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
-INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
-DELETE FROM TAG WHERE ID_TAG=1
-INSERT INTO TAG VALUES(1,'front-end',13)
-DELETE FROM TAG WHERE ID_TAG=2
-INSERT INTO TAG VALUES(2,'back-end',12)
-DELETE FROM TAG WHERE ID_TAG=3
-INSERT INTO TAG VALUES(3,'reunion',15)
-DELETE FROM TAG WHERE ID_TAG=4
-INSERT INTO TAG VALUES(4,'explication',15)
-DELETE FROM TAG WHERE ID_TAG=6
-INSERT INTO TAG VALUES(6,'programmation',13)
-DELETE FROM TAG WHERE ID_TAG=8
-INSERT INTO TAG VALUES(8,'deboggage',17)
-DELETE FROM TAG WHERE ID_TAG=9
-INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
-DELETE FROM TAG WHERE ID_TAG=10
-INSERT INTO TAG VALUES(10,'repos',17)
-DELETE FROM FICHE WHERE ID_FICHE=12
-INSERT INTO FICHE VALUES(12,'2021-04-30 10:31:57.483000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
-DELETE FROM FICHE WHERE ID_FICHE=13
-INSERT INTO FICHE VALUES(13,'2021-04-30 10:31:57.483000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
-DELETE FROM FICHE WHERE ID_FICHE=15
-INSERT INTO FICHE VALUES(15,'2021-04-30 10:31:57.483000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
-DELETE FROM FICHE WHERE ID_FICHE=17
-INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
-COMMIT
-DISCONNECT
-/*C16*/SET SCHEMA PUBLIC
-drop table if exists Fiche CASCADE 
-drop table if exists Section CASCADE 
-drop table if exists Sondage CASCADE 
-drop table if exists TableauKanban CASCADE 
-drop table if exists Tag CASCADE 
-drop table if exists Utilisateur CASCADE 
-drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
-create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
-create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
-create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
-create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
-create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
-alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
-alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
-alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
-alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
-/*C17*/SET SCHEMA PUBLIC
-drop table if exists Fiche CASCADE 
-drop table if exists Section CASCADE 
-drop table if exists Sondage CASCADE 
-drop table if exists TableauKanban CASCADE 
-drop table if exists Tag CASCADE 
-drop table if exists Utilisateur CASCADE 
-drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
-create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
-create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
-create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
-create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
-create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
-alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
-alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
-alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
-alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
-INSERT INTO TAG VALUES(1,'front-end',NULL)
-INSERT INTO TAG VALUES(2,'back-end',NULL)
-INSERT INTO TAG VALUES(3,'reunion',NULL)
-INSERT INTO TAG VALUES(4,'explication',NULL)
-INSERT INTO TAG VALUES(5,'exercices',NULL)
-INSERT INTO TAG VALUES(6,'programmation',NULL)
-INSERT INTO TAG VALUES(7,'execution',NULL)
-INSERT INTO TAG VALUES(8,'deboggage',NULL)
-INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
-INSERT INTO TAG VALUES(10,'repos',NULL)
-INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
-INSERT INTO FICHE VALUES(12,'2021-04-30 10:32:53.124000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
-INSERT INTO FICHE VALUES(13,'2021-04-30 10:32:53.124000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
-INSERT INTO FICHE VALUES(15,'2021-04-30 10:32:53.124000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
-INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
-INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
-INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
-INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
-INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
-INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
-INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
-INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
-INSERT INTO SECTION VALUES(26,'attente')
-INSERT INTO SECTION VALUES(27,'termin\u00e9e')
-INSERT INTO SECTION VALUES(28,'en cours')
-INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
-INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
-INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
-INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
-INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
-INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
-INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
-INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
-INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
-INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
-DELETE FROM TAG WHERE ID_TAG=1
-INSERT INTO TAG VALUES(1,'front-end',13)
-DELETE FROM TAG WHERE ID_TAG=2
-INSERT INTO TAG VALUES(2,'back-end',12)
-DELETE FROM TAG WHERE ID_TAG=3
-INSERT INTO TAG VALUES(3,'reunion',15)
-DELETE FROM TAG WHERE ID_TAG=4
-INSERT INTO TAG VALUES(4,'explication',15)
-DELETE FROM TAG WHERE ID_TAG=6
-INSERT INTO TAG VALUES(6,'programmation',13)
-DELETE FROM TAG WHERE ID_TAG=8
-INSERT INTO TAG VALUES(8,'deboggage',17)
-DELETE FROM TAG WHERE ID_TAG=9
-INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
-DELETE FROM TAG WHERE ID_TAG=10
-INSERT INTO TAG VALUES(10,'repos',17)
-DELETE FROM FICHE WHERE ID_FICHE=12
-INSERT INTO FICHE VALUES(12,'2021-04-30 10:32:53.124000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
-DELETE FROM FICHE WHERE ID_FICHE=13
-INSERT INTO FICHE VALUES(13,'2021-04-30 10:32:53.124000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
-DELETE FROM FICHE WHERE ID_FICHE=15
-INSERT INTO FICHE VALUES(15,'2021-04-30 10:32:53.124000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
-DELETE FROM FICHE WHERE ID_FICHE=17
-INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
-COMMIT
-DISCONNECT
-/*C16*/DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=11
-COMMIT
-INSERT INTO FICHE VALUES(39,NULL,'fiche5','lyon3','bien',5,NULL,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 40
-COMMIT
-/*C18*/SET SCHEMA PUBLIC
-INSERT INTO FICHE VALUES(40,NULL,'fiche7','lyon2','',5,NULL,NULL,NULL,NULL)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 41
-COMMIT
-/*C16*/DELETE FROM FICHE WHERE ID_FICHE=40
-COMMIT
-/*C18*/DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=14
-COMMIT
-/*C16*/DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=21
-COMMIT
-/*C18*/INSERT INTO SECTION VALUES(41,'realiser')
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 42
-COMMIT
-/*C9*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C18*/DISCONNECT
-/*C21*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C20*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C19*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C22*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C16*/DISCONNECT
-/*C23*/SET SCHEMA PUBLIC
-drop table if exists Fiche CASCADE 
-drop table if exists Section CASCADE 
-drop table if exists Sondage CASCADE 
-drop table if exists TableauKanban CASCADE 
-drop table if exists Tag CASCADE 
-drop table if exists Utilisateur CASCADE 
-drop sequence hibernate_sequence if exists
-create sequence hibernate_sequence start with 1 increment by 1
-create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
-create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
-create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
-create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
-create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
-create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
-alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
-alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
-alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
-alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
-INSERT INTO TAG VALUES(1,'front-end',NULL)
-INSERT INTO TAG VALUES(2,'back-end',NULL)
-INSERT INTO TAG VALUES(3,'reunion',NULL)
-INSERT INTO TAG VALUES(4,'explication',NULL)
-INSERT INTO TAG VALUES(5,'exercices',NULL)
-INSERT INTO TAG VALUES(6,'programmation',NULL)
-INSERT INTO TAG VALUES(7,'execution',NULL)
-INSERT INTO TAG VALUES(8,'deboggage',NULL)
-INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
-INSERT INTO TAG VALUES(10,'repos',NULL)
-INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
-INSERT INTO FICHE VALUES(12,'2021-04-30 18:23:55.131000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
-INSERT INTO FICHE VALUES(13,'2021-04-30 18:23:55.131000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
-INSERT INTO FICHE VALUES(15,'2021-04-30 18:23:55.131000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
-INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
-INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
-INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
-INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
-INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
-INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
-INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
-INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
-INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
-INSERT INTO SECTION VALUES(26,'attente')
-INSERT INTO SECTION VALUES(27,'termin\u00e9e')
-INSERT INTO SECTION VALUES(28,'en cours')
-INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
-INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
-INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
-INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
-INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
-INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
-INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
-INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
-INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
-INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
-DELETE FROM TAG WHERE ID_TAG=1
-INSERT INTO TAG VALUES(1,'front-end',13)
-DELETE FROM TAG WHERE ID_TAG=2
-INSERT INTO TAG VALUES(2,'back-end',12)
-DELETE FROM TAG WHERE ID_TAG=3
-INSERT INTO TAG VALUES(3,'reunion',15)
-DELETE FROM TAG WHERE ID_TAG=4
-INSERT INTO TAG VALUES(4,'explication',15)
-DELETE FROM TAG WHERE ID_TAG=6
-INSERT INTO TAG VALUES(6,'programmation',13)
-DELETE FROM TAG WHERE ID_TAG=8
-INSERT INTO TAG VALUES(8,'deboggage',17)
-DELETE FROM TAG WHERE ID_TAG=9
-INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
-DELETE FROM TAG WHERE ID_TAG=10
-INSERT INTO TAG VALUES(10,'repos',17)
-DELETE FROM FICHE WHERE ID_FICHE=12
-INSERT INTO FICHE VALUES(12,'2021-04-30 18:23:55.131000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
-DELETE FROM FICHE WHERE ID_FICHE=13
-INSERT INTO FICHE VALUES(13,'2021-04-30 18:23:55.131000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
-DELETE FROM FICHE WHERE ID_FICHE=15
-INSERT INTO FICHE VALUES(15,'2021-04-30 18:23:55.131000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
-DELETE FROM FICHE WHERE ID_FICHE=17
-INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
-ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
-COMMIT
-DISCONNECT
 /*C24*/SET SCHEMA PUBLIC
 drop table if exists Fiche CASCADE 
 drop table if exists Section CASCADE 
@@ -518,6 +17,7 @@ alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (sectio
 alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
 alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
 alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+DISCONNECT
 /*C25*/SET SCHEMA PUBLIC
 drop table if exists Fiche CASCADE 
 drop table if exists Section CASCADE 
@@ -548,10 +48,10 @@ INSERT INTO TAG VALUES(8,'deboggage',NULL)
 INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
 INSERT INTO TAG VALUES(10,'repos',NULL)
 INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
-INSERT INTO FICHE VALUES(12,'2021-04-30 18:24:22.703000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
-INSERT INTO FICHE VALUES(13,'2021-04-30 18:24:22.703000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:23:41.481000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:23:41.481000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
 INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
-INSERT INTO FICHE VALUES(15,'2021-04-30 18:24:22.703000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:23:41.481000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
 INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
 INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
 INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
@@ -592,13 +92,1203 @@ INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
 DELETE FROM TAG WHERE ID_TAG=10
 INSERT INTO TAG VALUES(10,'repos',17)
 DELETE FROM FICHE WHERE ID_FICHE=12
-INSERT INTO FICHE VALUES(12,'2021-04-30 18:24:22.703000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:23:41.481000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
 DELETE FROM FICHE WHERE ID_FICHE=13
-INSERT INTO FICHE VALUES(13,'2021-04-30 18:24:22.703000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:23:41.481000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
 DELETE FROM FICHE WHERE ID_FICHE=15
-INSERT INTO FICHE VALUES(15,'2021-04-30 18:24:22.703000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:23:41.481000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
 DELETE FROM FICHE WHERE ID_FICHE=17
 INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
 COMMIT
 DISCONNECT
+/*C26*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+/*C27*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:24:18.387000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:24:18.387000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:24:18.387000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:24:18.387000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:24:18.387000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:24:18.387000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C26*/DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=11
+INSERT INTO UTILISATEUR VALUES(11,'Moua','Moussa')
+COMMIT
+/*C28*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:26:26.308000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:26:26.308000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:26:26.308000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:26:26.308000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:26:26.308000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:26:26.308000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C26*/DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=11
+INSERT INTO UTILISATEUR VALUES(11,'Moua','Moussa')
+COMMIT
+DISCONNECT
+/*C29*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:27:16.965000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:27:16.965000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:27:16.965000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:27:16.965000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:27:16.965000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:27:16.965000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C30*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+/*C31*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:28:03.211000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:28:03.211000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:28:03.211000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:28:03.211000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:28:03.211000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:28:03.211000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C30*/DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=11
+INSERT INTO UTILISATEUR VALUES(11,'KoneALI','MoRRRussa')
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=16
+INSERT INTO UTILISATEUR VALUES(16,'baba','Ibrahim')
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=11
+INSERT INTO UTILISATEUR VALUES(11,'KoneALI','RRussa')
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=11
+INSERT INTO UTILISATEUR VALUES(11,'Kone','RRussa')
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=14
+INSERT INTO UTILISATEUR VALUES(14,'Kone','ali')
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=16
+INSERT INTO UTILISATEUR VALUES(16,'baba','Ibrahima')
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=18
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef  alias youssouf')
+COMMIT
+INSERT INTO FICHE VALUES(39,NULL,'fiche7','lyon3','',-13,NULL,NULL,NULL,NULL)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 40
+COMMIT
+DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C33*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:53:46.669000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:53:46.669000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:53:46.669000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:53:46.669000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:53:46.669000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:53:46.669000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C34*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+/*C35*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:54:15.249000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:54:15.249000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:54:15.249000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 19:54:15.249000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 19:54:15.249000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 19:54:15.249000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C34*/DELETE FROM TABLEAUKANBAN WHERE ID_KANBAN=29
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau18')
+COMMIT
+/*C36*/SET SCHEMA PUBLIC
+DELETE FROM TABLEAUKANBAN WHERE ID_KANBAN=30
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau21')
+COMMIT
+DISCONNECT
+/*C34*/DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:10:21.501000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:10:21.501000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:10:21.501000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:10:21.501000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:10:21.501000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:10:21.501000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+/*C39*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:11:58.804000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:11:58.804000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:11:58.804000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:11:58.804000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:11:58.804000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:11:58.804000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C38*/DISCONNECT
+/*C40*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:34:27.787000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:34:27.787000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:34:27.787000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:34:27.787000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:34:27.787000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:34:27.787000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C41*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+/*C42*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:34:59.061000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:34:59.061000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:34:59.061000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:34:59.061000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:34:59.061000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:34:59.061000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C41*/DELETE FROM SECTION WHERE ID_SECTION=28
+INSERT INTO SECTION VALUES(28,'r\u00e9lis\u00e9e')
+COMMIT
+DELETE FROM SECTION WHERE ID_SECTION=26
+INSERT INTO SECTION VALUES(26,'termin\u00e9e')
+COMMIT
+INSERT INTO SECTION VALUES(39,'pr\u00e9paration')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 40
+COMMIT
+DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=16
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahima')
+COMMIT
+/*C43*/SET SCHEMA PUBLIC
+DELETE FROM UTILISATEUR WHERE ID_UTILISATEUR=19
+COMMIT
+DISCONNECT
+/*C41*/DISCONNECT
+/*C44*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:47:55.630000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:47:55.630000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:47:55.630000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:47:55.630000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:47:55.630000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:47:55.630000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C45*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+/*C46*/SET SCHEMA PUBLIC
+drop table if exists Fiche CASCADE 
+drop table if exists Section CASCADE 
+drop table if exists Sondage CASCADE 
+drop table if exists TableauKanban CASCADE 
+drop table if exists Tag CASCADE 
+drop table if exists Utilisateur CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table Fiche (id_fiche bigint not null, date_buttoir timestamp, libelle varchar(255), lieu varchar(255), note varchar(255), temps bigint, url varchar(255), section_id_section bigint, tableau_id_Kanban bigint, id_utilisateur bigint, primary key (id_fiche))
+create table Section (id_section bigint not null, libelle_section varchar(255), primary key (id_section))
+create table Sondage (DTYPE varchar(31) not null, id_Sondage bigint not null, choix_date timestamp, choix_date_lieu varchar(255), choix_lieu varchar(255), primary key (id_Sondage))
+create table TableauKanban (id_Kanban bigint not null, libelle_tableau varchar(255), primary key (id_Kanban))
+create table Tag (id_Tag bigint not null, libelle varchar(255), fiche_id_fiche bigint, primary key (id_Tag))
+create table Utilisateur (id_utilisateur bigint not null, nom varchar(255), prenom varchar(255), primary key (id_utilisateur))
+alter table Fiche add constraint FKkr7olq5iosn2wig8w98m5rxsv foreign key (section_id_section) references Section
+alter table Fiche add constraint FK2ut4gsiciwxj8gyasjbe72als foreign key (tableau_id_Kanban) references TableauKanban
+alter table Fiche add constraint FK6varcfwj33icxij7ki8hara59 foreign key (id_utilisateur) references Utilisateur
+alter table Tag add constraint FKlw19621616pu8sgcpukyd673d foreign key (fiche_id_fiche) references Fiche
+INSERT INTO TAG VALUES(1,'front-end',NULL)
+INSERT INTO TAG VALUES(2,'back-end',NULL)
+INSERT INTO TAG VALUES(3,'reunion',NULL)
+INSERT INTO TAG VALUES(4,'explication',NULL)
+INSERT INTO TAG VALUES(5,'exercices',NULL)
+INSERT INTO TAG VALUES(6,'programmation',NULL)
+INSERT INTO TAG VALUES(7,'execution',NULL)
+INSERT INTO TAG VALUES(8,'deboggage',NULL)
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',NULL)
+INSERT INTO TAG VALUES(10,'repos',NULL)
+INSERT INTO UTILISATEUR VALUES(11,'bamba','Moussa')
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:48:23.412000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',NULL,NULL,NULL)
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:48:23.412000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(14,'Kone','Moussa')
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:48:23.412000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(16,'bamba','Ibrahim')
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',NULL,NULL,NULL)
+INSERT INTO UTILISATEUR VALUES(18,'bamba','Youssef')
+INSERT INTO UTILISATEUR VALUES(19,'bamba','Affou')
+INSERT INTO UTILISATEUR VALUES(20,'bamba','Aicha')
+INSERT INTO UTILISATEUR VALUES(21,'bamba','Ali')
+INSERT INTO UTILISATEUR VALUES(22,'gbe','bonaventure')
+INSERT INTO UTILISATEUR VALUES(23,'sehi','kelasemae')
+INSERT INTO UTILISATEUR VALUES(24,'soboro','jean marie')
+INSERT INTO UTILISATEUR VALUES(25,'MAURICE','AKA')
+INSERT INTO SECTION VALUES(26,'attente')
+INSERT INTO SECTION VALUES(27,'termin\u00e9e')
+INSERT INTO SECTION VALUES(28,'en cours')
+INSERT INTO TABLEAUKANBAN VALUES(29,'tableau1')
+INSERT INTO TABLEAUKANBAN VALUES(30,'tableau2')
+INSERT INTO TABLEAUKANBAN VALUES(31,'tableau3')
+INSERT INTO TABLEAUKANBAN VALUES(32,'tableau4')
+INSERT INTO TABLEAUKANBAN VALUES(33,'tableau5')
+INSERT INTO TABLEAUKANBAN VALUES(34,'tableau6')
+INSERT INTO TABLEAUKANBAN VALUES(35,'tableau7')
+INSERT INTO TABLEAUKANBAN VALUES(36,'tableau8')
+INSERT INTO TABLEAUKANBAN VALUES(37,'tableau9')
+INSERT INTO TABLEAUKANBAN VALUES(38,'tableau10')
+DELETE FROM TAG WHERE ID_TAG=1
+INSERT INTO TAG VALUES(1,'front-end',13)
+DELETE FROM TAG WHERE ID_TAG=2
+INSERT INTO TAG VALUES(2,'back-end',12)
+DELETE FROM TAG WHERE ID_TAG=3
+INSERT INTO TAG VALUES(3,'reunion',15)
+DELETE FROM TAG WHERE ID_TAG=4
+INSERT INTO TAG VALUES(4,'explication',15)
+DELETE FROM TAG WHERE ID_TAG=6
+INSERT INTO TAG VALUES(6,'programmation',13)
+DELETE FROM TAG WHERE ID_TAG=8
+INSERT INTO TAG VALUES(8,'deboggage',17)
+DELETE FROM TAG WHERE ID_TAG=9
+INSERT INTO TAG VALUES(9,'passer \u00e0 table',17)
+DELETE FROM TAG WHERE ID_TAG=10
+INSERT INTO TAG VALUES(10,'repos',17)
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:48:23.412000','fiche1','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+DELETE FROM FICHE WHERE ID_FICHE=13
+INSERT INTO FICHE VALUES(13,'2021-04-30 20:48:23.412000','fiche3','paris','mediocre',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',26,37,24)
+DELETE FROM FICHE WHERE ID_FICHE=15
+INSERT INTO FICHE VALUES(15,'2021-04-30 20:48:23.412000','fiche2','paris','moyen',40,'https://www.youtube.com/results?search_query=exemple+de+tableau+kanban',27,36,22)
+DELETE FROM FICHE WHERE ID_FICHE=17
+INSERT INTO FICHE VALUES(17,NULL,'fiche4','lyon','bien',60,'https://drive.google.com/file/d/1C_OOCPh-tCFvKz9QQDbmrt7IULA5vYZ6/preview',27,38,24)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 39
+COMMIT
+DISCONNECT
+/*C45*/DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:48:23.412000','fiche10','rennes','bien',50,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+COMMIT
+/*C47*/SET SCHEMA PUBLIC
+DELETE FROM FICHE WHERE ID_FICHE=12
+INSERT INTO FICHE VALUES(12,'2021-04-30 20:48:23.412000','fiche10','rennes','bien',500,'https://www.jmdoudoux.fr/java/dej/chap-utilisation_dates.htm',27,33,23)
+COMMIT

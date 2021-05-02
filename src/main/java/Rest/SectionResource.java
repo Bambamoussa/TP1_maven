@@ -4,6 +4,7 @@ import jaxrs.Dao.FicheDao;
 import jaxrs.Dao.SectionDao;
 import kanban.Fiche;
 import kanban.Section;
+import kanban.Utilisateur;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -66,6 +67,18 @@ public class SectionResource {
             this.sectiondao.deleteById(sectionId);
 
         }
+
+    @POST
+    @Path("section/{sectionId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Section updateFicheById(@PathParam("sectionId") Long sectionId, Section section)  {
+        Section updateSection= this.sectiondao.findOne(sectionId);
+        updateSection.setLibelle_section(section.getLibelle_section());
+
+        Section section1= this.sectiondao.update(updateSection);
+        return  section1;
+    }
 
     }
 
