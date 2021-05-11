@@ -6,17 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2f012163-2038-484b-ab78-9e8812319bf1" name="Default Changelist" comment=" update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.log" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/test.script" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.script" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rest/FicheResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/FicheResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rest/SectionResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/SectionResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rest/TableauKanbanResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/TableauKanbanResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Rest/UtilisateurResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rest/UtilisateurResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Rest/FicheResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/FicheResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Rest/SectionResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/SectionResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Rest/TableauKanbanResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/TableauKanbanResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Rest/UtilisateurResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Rest/UtilisateurResource.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,10 +115,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.Unnamed (1)" />
       <item itemvalue="Application.JpaTest" />
       <item itemvalue="Application.RestServer" />
+      <item itemvalue="Application.Unnamed (1)" />
+      <item itemvalue="Application.Unnamed" />
     </list>
     <recent_temporary>
       <list>
